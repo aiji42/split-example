@@ -1,13 +1,6 @@
-const { withSplit } = require('next-with-split')
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = withSplit({
+const withSplit = require('next-with-split').withSplit({
   splits: {
-    'challenger-1': {
+    'test1': {
       path: '/',
       hosts: {
         original: 'split-example.vercel.app',
@@ -15,4 +8,11 @@ module.exports = withSplit({
       }
     }
   }
-})(nextConfig)
+})
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+}
+
+module.exports = withSplit(nextConfig)
